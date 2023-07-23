@@ -1,14 +1,13 @@
-#include "main.h"
-#include<stdarg.h>
+#include"main.h"
+
 /**
- * print_percent - prints a single modulo '%'.
- * @args: the va_list
- * 
- * return: the number of char printed.
-*/
-int print_percent(va_list args)
+ * print_percent - Prints a single '%'.
+ *
+ * Return: The number of characters printed (always 1).
+ */
+
+int print_percent(void)
 {
-	(void)args;
 	putchar('%');
 	return (1);
 }
