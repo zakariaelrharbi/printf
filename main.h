@@ -9,13 +9,9 @@
 int _printf(const char *format, ...);
 
 
-
-
-
-
-
-
-
+int valid_precentage(const char *format, int *i);
+int _putchar(char c);
+int print_percent(void);
 
 
 
