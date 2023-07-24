@@ -2,17 +2,18 @@
 
 /**
  * _strlen - function that returns the length of a string.
- *@s : point to int
+ *@args : point to int
  * Return: Always i.
  */
-int _strlen(char *s)
+int _strlen(va_list args)
 {
-	int i;
+	const char *s = va_arg(args, const char*);
+	int i = 0;
 
-	i = 0;
 	while (s[i] != '\0')
 	{
 		i++;
 	}
+
 	return (i);
 }

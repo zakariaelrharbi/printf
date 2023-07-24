@@ -5,8 +5,9 @@
  * @str: The string to print.
  * Return: The number of characters printed.
  */
-int print_string(char *str)
-{
+int print_string(va_list args)
+{	
+	char *str = va_arg(args, char*);
 	int i, len;
 	char *nullstr;
 

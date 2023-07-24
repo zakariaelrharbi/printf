@@ -13,7 +13,14 @@ int _printf(const char *format, ...)
 
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
-
+	Specifier spec[] = {
+		{'c', printf_char},
+		{'s', print_string},
+		{'%', print_percent},
+		{'r', printReversedString},
+		{'d', print_decimal},
+		{'i', print_integer},
+	};
 	va_start(args, format);
 
 	while (*format)
@@ -21,39 +28,21 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			switch (*format)
+			for (size_t i = 0; i < sizeof(spec) / sizeof(spec[0]); i++)
 			{
-				case 'c':
-					_putchar(va_arg(args, int));
-					count++;
+				if (*format == spec[i].specifier)
+				{
+					count += spec[i].printer(args);
 					break;
-				case 's':
-					{
-						char *str = va_arg(args, char *);
-
-						if (str == NULL)
-							count += print_string("(null)");
-						else
-							count += print_string(str);
-						break;
-					}
-				case '%':
-					_putchar('%');
-					count++;
-					break;
-				default:
-					_putchar('%');
-					_putchar(*format);
-					count += 2;
-					break;
+				}
 			}
 		}
-		else
-		{
-			_putchar(*format);
-			count++;
-		}
-		format++;
+			else
+			{
+				_putchar(*format);
+				count++;
+			}
+			format++;
 	}
 	va_end(args);
 	return (count);

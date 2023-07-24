@@ -8,18 +8,23 @@
 #include <unistd.h>
 #include <string.h>
 
+typedef struct {
+	char specifier;
+	int (*printer)(va_list);
+} Specifier;
+
 int _printf(const char *format, ...);
-
-
 int valid_precentage(const char *format, int *i);
 int _putchar(char c);
 int print_percent(void);
-int print_string(char *str);
 int print_unsigned_integer(unsigned int n);
 int print_unsigned_octal(unsigned int n);
-int _strlen(char *s);
-
-
+int print_string(va_list args);
+int _strlen(va_list args);
+void printReversedString(va_list args);
+int print_char(va_list args);
+int print_integer(va_list args);
+int print_decimal(va_list args);
 
 
 
