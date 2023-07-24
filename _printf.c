@@ -1,49 +1,44 @@
 #include "main.h"
 
-/**
- * _printf - Produces output according to a format.
- * @format: The format string.
- * @...: The variable arguments.
- * Return: The number of characters printed, or -1 on error.
- */
-int _printf(const char *format, ...)
+int _printf(const char *format, ...) 
 {
-	int count = 0;
-	va_list args;
 
-	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
-		return (-1);
-	Specifier spec[] = {
-		{'c', printf_char},
-		{'s', print_string},
-		{'%', print_percent},
-		{'r', printReversedString},
-		{'d', print_decimal},
-		{'i', print_integer},
+	Specifier_t n[] = {
+		{"%c", print_char},
+		{"%s", print_string},
+		{"%%", print_percent},
+		{"%r", printReversedString},
+		{"%d", print_decimal},
+		{"%i", print_integer},
 	};
+	va_list args;
+	int i = 0, j, len = 0;
+	int match = 0;
+	
 	va_start(args, format);
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+    	return (-1);
 
-	while (*format)
+	while (format[i] != '\0')
 	{
-		if (*format == '%')
+		match = 0;
+		for (j = 5; j >= 0; j--)
 		{
-			format++;
-			for (size_t i = 0; i < sizeof(spec) / sizeof(spec[0]); i++)
+			if (n[j].sp[0] == format[i] && n[j].sp[1] == format[i + 1])
 			{
-				if (*format == spec[i].specifier)
-				{
-					count += spec[i].printer(args);
-					break;
-				}
+				len += n[j].p(args);
+				i += 2;
+				match = 1;
+				break;
 			}
 		}
-			else
-			{
-				_putchar(*format);
-				count++;
-			}
-			format++;
+		if (!match)
+		{
+			_putchar(format[i]);
+			len++;
+			i++;
+		}
 	}
 	va_end(args);
-	return (count);
+	return (len);	
 }
