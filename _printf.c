@@ -8,11 +8,12 @@
  */
 int _printf(const char *format, ...)
 {
-	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
-	return -1;
-	
 	int count = 0;
 	va_list args;
+
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+	return -1;
+
 	va_start(args, format);
 
 	while (*format)

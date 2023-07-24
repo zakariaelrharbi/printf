@@ -8,21 +8,21 @@
 int print_string(char *str)
 {
 	int i, len;
+	char *nullstr;
 
+	nullstr = "(null)";
 	len = 0;
 	if (str == NULL)
 	{
-		str = "(null)";
-		len = _strlen(str);
-		for (i = 0; i < len; i++)
-			_putchar(str[i]);
-		return (len);
+		for (i = 0; nullstr[i] != '\0'; i++)
+			_putchar(nullstr[i]);
+		return (6);
 	}
 	else
 	{
 		len = _strlen(str);
-		for (i = 0; i < len; i++)
-			_putchar(str[len]);
+		for (i = 0; str[i] != '\0'; i++)
+			_putchar(str[i]);
 		return (len);
 	}
 }
