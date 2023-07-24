@@ -2,7 +2,7 @@
 /**
  * print_unsigned_integer - function that print unsigned int.
  * @n: the unsigned int.
- * return: return the count number
+ * Return: return the count number.
 */
 int print_unsigned_integer(unsigned int n)
 {
@@ -21,7 +21,7 @@ int print_unsigned_integer(unsigned int n)
 /**
  * print_unsigned_octal - function that print unsigned octal.
  * @n: the unsigned int.
- * return: the count number.
+ * Return: the count number.
 */
 int print_unsigned_octal(unsigned int n)
 {

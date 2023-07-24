@@ -10,7 +10,7 @@ int print_string(char *str)
 	int i, len;
 	char *nullstr;
 
-	nullstr = "(null)"; 
+	nullstr = "(null)";
 	len = 0;
 	if (str == NULL)
 	{
