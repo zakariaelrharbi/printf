@@ -2,28 +2,17 @@
 
 /**
  * print_string - Prints a string and returns the number of characters printed.
- * @str: The string to print.
+ * @args: A va_list containing the variable argument list.
  * Return: The number of characters printed.
  */
 int print_string(va_list args)
-{	
-	char *str = va_arg(args, char*);
-	int i, len;
-	char *nullstr;
+{
+	char *s;
 
-	nullstr = "(null)";
-	len = 0;
-	if (str == NULL)
-	{
-		for (i = 0; nullstr[i] != '\0'; i++)
-			_putchar(nullstr[i]);
-		return (6);
-	}
-	else
-	{
-		len = _strlen(str);
-		for (i = 0; str[i] != '\0'; i++)
-			_putchar(str[i]);
-		return (len);
-	}
+	s = va_arg(args, char *);
+
+	if (s == NULL)
+		return (_puts("(null)"));
+
+	return (_puts(s));
 }
