@@ -34,4 +34,9 @@ int print_integer(va_list args);
 int print_decimal(va_list args);
 int _puts(char *s);
 int print_binary(va_list args);
+void rev(char s[]);
+void _itoa(long n, char s[]);
+int print_int(va_list list);
+
+
 #endif
