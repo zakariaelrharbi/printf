@@ -14,7 +14,7 @@ int print_decimal(va_list args)
 	int temp = num;
 	int digit;
 
-	if (a == -2147483648)
+	if (num == -2147483648)
 		return (print_string("-2147483648"));
 	if (num == 0)
 	{
