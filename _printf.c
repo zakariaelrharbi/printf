@@ -1,6 +1,11 @@
 #include "main.h"
-
-int _printf(const char *format, ...) 
+/**
+ * _printf - helper function
+ * @format: The format string containing the conversion specifiers.
+ * Conversion specifiers supported: %c, %s, %%, %r, %d, %i.
+ * Return: The total number of characters printed.
+ */
+int _printf(const char *format, ...)
 {
 
 	Specifier_t n[] = {
@@ -14,10 +19,10 @@ int _printf(const char *format, ...)
 	va_list args;
 	int i = 0, j, len = 0;
 	int match = 0;
-	
+
 	va_start(args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
-    	return (-1);
+		return (-1);
 
 	while (format[i] != '\0')
 	{
@@ -40,5 +45,5 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(args);
-	return (len);	
+	return (len);
 }
