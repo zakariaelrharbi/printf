@@ -13,9 +13,6 @@ int print_integer(va_list args)
 	int count = 0;
 	int digit, div = 1;
 
-	if (num == -2147483648)
-	return (print_string("-2147483648"));
-
 	if (num == 0)
 	{
 		_putchar('0');
