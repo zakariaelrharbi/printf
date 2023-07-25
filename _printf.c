@@ -16,6 +16,7 @@ int _printf(const char *format, ...)
 		{"%r", printReversedString},
 		{"%d", print_decimal},
 		{"%i", print_integer},
+		{"%b", print_binary},
 	};
 	va_list args;
 	int i = 0, j, len = 0;
@@ -28,7 +29,7 @@ int _printf(const char *format, ...)
 	while (format[i] != '\0')
 	{
 		match = 0;
-		for (j = 5; j >= 0; j--)
+		for (j = 6; j >= 0; j--)
 		{
 			if (n[j].sp[0] == format[i] && n[j].sp[1] == format[i + 1])
 			{
