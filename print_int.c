@@ -1,81 +1,46 @@
 #include "main.h"
 
 /**
- * print_integer - prints integer
- * @args: argument to print
- * Return: number of characters printed
+ * print_decimal - Prints a decimal integer.
+ * @args: The va_list containing the decimal integer argument.
+ * Return: The number of characters printed.
  */
 
-int print_int(va_list list)
+int print_decimal(va_list args)
 {
-	int num = va_arg(list, long);
-	char buf[50];
+    int num = va_arg(args, int);
+    int count = 0;
+    int div = 1;
+    int temp = num;
+    int digit;
 
-	_itoa(num, buf);
-	return(puts(buf));
-}
+    if (num == 0)
+    {
+        _putchar('0');
+        return (1);
+    }
 
-void rev(char s[])
-{
-	unsigned int i, len;
-	char temp;
+    if (num < 0)
+    {
+        _putchar('-');
+        count++;
+        num = -num;
+    }
 
-	len = _strlen(s);
-	for (i = 0; i < len / 2; i++)
-	{
-		temp = s[i];
-		s[i] = s[len - i - 1];
-		s[len - i - 1] = temp;
-	}
-}
+    while (temp != 0)
+    {
+        temp /= 10;
+        div *= 10;
+    }
 
-void _itoa(long n, char s[])
-{
-	long sgn = n;
-	unsigned int i = 0;
+    while (div > 1)
+    {
+        div /= 10;
+        digit = num / div;
+        _putchar(digit + '0');
+        count++;
+        num %= div;
+    }
 
-	if (sgn > 0)
-		n = -n;
-	
-	do {
-		s[i++] = n% 10 + '0';
-	} while ((n /= 10) > 0);
-	if (sgn < 0)
-		s[i++] = '-';
-	s[i] = '\0';
-	rev(s);
-}
-
-int print_integer(va_list args)
-{
-	int num = va_arg(args, int);
-	int count = 0;
-	int digit, div = 1;
-
-	if (num == 0)
-	{
-		_putchar('0');
-		return (1);
-	}
-
-	if (num < 0)
-	{
-		_putchar('-');
-		count++;
-		num = -num;
-	}
-
-	while (num / div >= 10)
-		div *= 10;
-
-	while (div > 0)
-	{
-		digit = num / div;
-		_putchar(digit + '0');
-		count++;
-		num %= div;
-		div /= 10;
-	}
-
-	return (count);
+    return (count);
 }
