@@ -6,6 +6,45 @@
  * Return: number of characters printed
  */
 
+int print_int(va_list list)
+{
+	int num = va_arg(list, long);
+	char buf[50];
+
+	_itoa(num, buf);
+	return(puts(buf));
+}
+
+void rev(char s[])
+{
+	unsigned int i, len;
+	char temp;
+
+	len = _strlen(s);
+	for (i = 0; i < len / 2; i++)
+	{
+		temp = s[i];
+		s[i] = s[len - i - 1];
+		s[len - i - 1] = temp;
+	}
+}
+
+void _itoa(long n, char s[])
+{
+	long sgn = n;
+	unsigned int i = 0;
+
+	if (sgn > 0)
+		n = -n;
+	
+	do {
+		s[i++] = n% 10 + '0';
+	} while ((n /= 10) > 0);
+	if (sgn < 0)
+		s[i++] = '-';
+	s[i] = '\0';
+	rev(s);
+}
 
 int print_integer(va_list args)
 {
