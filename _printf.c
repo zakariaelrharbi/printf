@@ -14,8 +14,8 @@ int _printf(const char *format, ...)
 		{"%s", print_string},
 		{"%%", print_percent},
 		{"%r", printReversedString},
-		{"%d", print_decimal},
-		{"%i", print_decimal},
+		{"%d", print_dec},
+		{"%i", print_int},
 		{"%b", print_binary},
 	};
 	va_list args;
