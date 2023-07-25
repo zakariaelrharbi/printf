@@ -8,12 +8,14 @@
 
 int print_decimal(va_list args)
 {
-int num = va_arg(args, int);
+	int num = va_arg(args, int);
 	int count = 0;
 	int div = 1;
 	int temp = num;
 	int digit;
 
+	if (a == -2147483648)
+		return (print_string("-2147483648"));
 	if (num == 0)
 	{
 		_putchar('0');
