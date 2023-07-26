@@ -36,8 +36,6 @@ int _puts(char *s);
 int print_binary(va_list args);
 void rev(char s[]);
 void _itoa(long n, char s[]);
-int printf_int(va_list args);
-int printf_dec(va_list args);
 
 
 #endif

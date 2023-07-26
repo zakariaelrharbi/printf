@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * _printf - helper function
  * @format: The format string containing the conversion specifiers.
@@ -14,8 +13,8 @@ int _printf(const char *format, ...)
 		{"%s", print_string},
 		{"%%", print_percent},
 		{"%r", printReversedString},
-		{"%d", print_dec},
-		{"%i", print_int},
+		{"%d", print_decimal},
+		{"%i", print_integer},
 		{"%b", print_binary},
 	};
 	va_list args;
