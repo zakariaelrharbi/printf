@@ -1,17 +1,16 @@
 #include "main.h"
 
 /**
- * print_integer - prints integer
- * @args: argument to print
- * Return: number of characters printed
+ * print_integer - Prints an integer.
+ * @args: The va_list containing the integer argument.
+ * Return: The number of characters printed.
  */
-
-
 int print_integer(va_list args)
 {
-	int num = va_arg(args, int);
+	int64_t num = va_arg(args, int64_t);
 	int count = 0;
-	int digit, div = 1;
+	int digit;
+	int64_t div = 1;
 
 	if (num == 0)
 	{
