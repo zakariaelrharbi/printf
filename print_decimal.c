@@ -6,9 +6,9 @@
  */
 int print_decimal(va_list args)
 {
-	int64_t num = va_arg(args, int64_t); 
+	int64_t num = va_arg(args, int); 
 	int count = 0;
-	int64_t div = 1; 
+	int div = 1; 
 	int64_t temp = num;
 	int digit;
 
